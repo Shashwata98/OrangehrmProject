@@ -1,12 +1,15 @@
 import browser.Browser;
 import browser.Info;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.LoginPage;
 
 import java.time.Duration;
 
-public class FirstTest {
+public class FirstTest extends TestBase {
+    /*
     WebDriver driver;
 
     @BeforeMethod
@@ -16,10 +19,21 @@ public class FirstTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+    */
 
     @Test
     public void test01(){
-        Browser browser = new Browser();
+        startLoginPage().loginToPIMPage();
+        //PageFactory.initElements(driver, LoginPage.class).loginToPIMPage();
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @Test
+    public void test02(){
 
     }
 }
